@@ -1,14 +1,26 @@
-import React, {  useEffect } from 'react'
+import React, {  useEffect, useState } from 'react'
 import postsApi from '../../api/postsApi/api'
 import Button from "../../component/Button/ButtonTemplate";
 import { useSelector, useDispatch } from "react-redux";
-import { getPosts, deletePost } from "../../redux/actions/actions";
+import { getPosts, deletePost, changePost } from "../../redux/actions/actions";
+import ModalTemplate from "../../component/Modal/ModalTemplate";
 
 const PostsPage = () => {
 
     const dispatch = useDispatch();
 
     const postItems = useSelector(state => state.posts.postItems)
+
+    const [isVisibleModal, setIsVisibleModal] = useState(false)
+
+    const [modalNumber, setModalNumber] = useState(-1)
+
+
+
+    const toggleModal = (id) => {
+        setIsVisibleModal(!isVisibleModal);
+        setModalNumber(id)
+    }
 
     const getListPosts = async () => {
         try {
@@ -28,18 +40,18 @@ const PostsPage = () => {
         dispatch(deletePost(arr, id));
 
     }
-    const changePost = () => {
-        console.log('change Post')
-    }
+    // const changePostId = () => {
+    //     toggleModal()
+    // }
 
 
     return (
         <div>
             {
-                postItems.map((item, i) => {
+                postItems.map((item) => {
                     return (
                         <div
-                key={i}
+                key={item.id}
                 >
                             <div>
                                 {item.title}
@@ -54,8 +66,16 @@ const PostsPage = () => {
                             />
                             <Button
                                 text={'Изменить'}
-                                onClick={changePost}
+                                onClick={() => toggleModal(item.id)}
                             />
+                            {
+                                modalNumber === item.id ?
+                                <ModalTemplate
+                                    item={item}
+                                    toggleModal={toggleModal}
+                                />
+                                : null
+                            }
 
                 </div>
                 )

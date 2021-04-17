@@ -1,0 +1,21 @@
+@import "../../assets/scss/variables";
+
+.inputTemplate {
+    width: 250px;
+
+   &__label {
+        color: #ffa500;
+        font-size: 19px;
+        font-weight: 500;
+    }
+
+    &__input {
+        outline: none;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 2px solid #b5b1b1;
+        border-radius: 4px;
+        background: #b5b1b1;
+    }
+}

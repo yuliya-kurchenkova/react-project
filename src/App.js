@@ -8,9 +8,9 @@ const App = () => {
   const history = useHistory()
 
   useEffect(() => {
-    const user = localStorage.getItem('user')
+    const token = localStorage.getItem('token')
 
-    if(user) {
+    if(token) {
       // history.push("/posts")
     } else {
       history.push("/")
