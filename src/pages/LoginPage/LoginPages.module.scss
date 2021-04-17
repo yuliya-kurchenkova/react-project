@@ -1,0 +1,15 @@
+@import "../../assets/scss/variables";
+
+
+.loginPage {
+  font-weight: 400;
+  display: flex;
+  width: 487px;
+  padding: 60px;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
+  background: #f8f4f4;
+  box-shadow: 0 0 20px rgb(0 0 0 / 8%);
+}
