@@ -6,19 +6,13 @@ export default {
         const instCred = axios.create({
             baseURL: CURRENT_SERVER,
         });
-        return instCred.get('posts?_start=0&_limit=20');
+        return instCred.get('posts?_start=0&_limit=4');
     },
     deletePosts(id) {
         const instCred = axios.create({
             baseURL: CURRENT_SERVER,
         });
         return instCred.delete(`/posts/${id}`);
-    },
-    createPost(post) {
-        const instCred = axios.create({
-            baseURL: CURRENT_SERVER,
-        });
-        return instCred.post('/posts', post);
     },
     updatePost(id, post) {
         const instCred = axios.create({
@@ -27,5 +21,18 @@ export default {
         console.log(id, post)
         return instCred.patch(`/posts/${id}`, post);
 
-    }
+    },
+    getCommentsList() {
+        const instCred = axios.create({
+            baseURL: CURRENT_SERVER,
+        });
+        return instCred.get('/comments?_start=0&_limit=33');
+    },
+    createPost(post) {
+        const instCred = axios.create({
+            baseURL: CURRENT_SERVER,
+        });
+        return instCred.post('/posts', post);
+    },
 };
+

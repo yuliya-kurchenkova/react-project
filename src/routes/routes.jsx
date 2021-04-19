@@ -1,6 +1,6 @@
 import LoginPage from '../pages/LoginPage/LoginPage';
 import PostsPage from '../pages/Posts/PostsPage';
-import CreatePost from "../pages/CreatePost/CreatePost";
+import CommentsPage from "../pages/CommentsPage/CommentsPage";
 
 
 const routes = {
@@ -12,9 +12,9 @@ const routes = {
         url: '/posts',
         component: PostsPage,
     },
-    newPostPage: {
-        url: '/new-post',
-        component: CreatePost,
+    commentsPage: {
+        url: '/comments',
+        component: CommentsPage,
     }
 };
 export default routes;

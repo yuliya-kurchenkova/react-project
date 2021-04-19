@@ -1,4 +1,4 @@
-import { ADD_NEW_POST, GET_POSTS, DELETE_POST, CHANGE_POST } from '../../constants/types';
+import {ADD_NEW_POST, GET_POSTS, DELETE_POST, CHANGE_POST, SORT_POSTS} from '../../constants/types';
 
 const initialState = {
     postItems: [],
@@ -25,6 +25,11 @@ export const postReducers = (state = initialState, action) => {
                 postItems: action.payload
             }
         case CHANGE_POST:
+            console.log(action.payload)
+            return {
+                postItems: action.payload
+            }
+        case SORT_POSTS:
             console.log(action.payload)
             return {
                 postItems: action.payload

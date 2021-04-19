@@ -1,4 +1,4 @@
-import { ADD_NEW_POST, GET_POSTS, DELETE_POST, CHANGE_POST } from '../../constants/types'
+import { ADD_NEW_POST, GET_POSTS, DELETE_POST, CHANGE_POST, GET_COMMENTS, SORT_POSTS } from '../../constants/types'
 import postsApi from "../../api/postsApi/api";
 
 
@@ -40,6 +40,35 @@ export function changePost(list, id, post) {
         dispatch({
         type: CHANGE_POST,
         payload: list
+        })
+    }
+}
+export function getComments(list) {
+    console.log(list)
+    return {
+        type: GET_COMMENTS,
+        payload: list
+    }
+}
+
+export function sortPosts(list) {
+    console.log(list)
+    return  dispatch => {
+        const arr = list.sort( (a, b) => {
+
+        if (a.title < b.title) {
+            return -1
+        }
+    })
+    console.log(arr)
+        dispatch ({
+        type: SORT_POSTS,
+        payload: list.sort( (a, b) => {
+
+            if (a.title < b.title) {
+                return -1
+            }
+        })
         })
     }
 }
